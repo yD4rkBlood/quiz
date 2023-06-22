@@ -1,1 +1,1 @@
-Quiz Básico Feitor Por: Caio Rocha, Gustavo Freschi e Heitor Medina
+Quiz Feitor Por: Caio Rocha, Gustavo Freschi e Heitor Medina

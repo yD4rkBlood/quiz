@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    body>.texto-quiz {
+        font-size: 10vw;
+        margin-top: 100px;
+    }
+
+    main>.img-quiz {
+        width: 70vw;
+    }
+
+
+    body>footer {
+        margin-top: 25vw;
+        font-size: 17px;
+    }
+
+    main>.comeco {
+        padding: 15px;
+        width: 100%;
+        max-width: 200px;
+        font-size: 1.6em;
+        text-align: center;
+    }
+}
+
+body {
+    background: url(https://coolbackgrounds.io/images/backgrounds/white/white-triangle-369b8d2d.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.texto-quiz {
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 2vw;
+}
+
+.img-quiz {
+    width: 30%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comeco {
+    border: 4px solid black;
+    border-radius: 10px;
+    font-size: 1.5em;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+}
+
+.comeco:hover {
+    transform: scale(1.07);
+    transition-duration: 300ms;
+}
+
+footer {
+    text-align: center;
+    margin-top: 6vw;
+    font-size: 18px;
+    font-style: italic;
+}

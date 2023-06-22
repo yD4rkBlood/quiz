@@ -1,6 +1,6 @@
 function Perguntas() {
 
-    Question =
+    Questions =
         [
             {
                 tema: "Conhecimentos Gerais",
@@ -52,10 +52,10 @@ function Perguntas() {
                 resp4: "Neil Armstrong, em 1955.",
                 correta: "3"
             }
-            
+
         ]
-    localStorage.setItem('bdQuiz', JSON.stringify(Question))
-    return Question
+    localStorage.setItem('bdQuiz', JSON.stringify(Questions))
+    return Questions
 }
 
 var Sorteado = []
@@ -67,7 +67,8 @@ var Perguntatela = ''
 var Questions = Perguntas()
 
 function carregarjogo() {
-    
+
+
     do {
         var Sorte = parseInt(Math.random() * Questions.length)
     } while (Sorteado.indexOf(Sorte) != -1)
@@ -82,6 +83,32 @@ function carregarjogo() {
     document.getElementById('resposta2').innerHTML = Questions[Sorte].resp2
     document.getElementById('resposta3').innerHTML = Questions[Sorte].resp3
     document.getElementById('resposta4').innerHTML = Questions[Sorte].resp4
+
     
+
+}
+
+function RespostaCerta(certo) {
+    if (certo == 0) {
+        return false
+    } else if (certo == 2 || certo == 3 || certo == 4) {
+        return true
+    }
+}
+
+if (RespostaCerta(correto) == true) {
+    console.log('eee')
+ }
+
+
+function comecar() {
+    var user = document.getElementById('usuario').value
+
+    if (user == "") {
+        alert('Digite seu nome!')
+        document.getElementById('comecando').removeAttribute("href")
+    } else {
+        location.href = 'quiz.html'
+    }
 
 }

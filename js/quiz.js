@@ -88,17 +88,8 @@ function carregarjogo() {
 
 }
 
-function RespostaCerta(certo) {
-    if (certo == 0) {
-        return false
-    } else if (certo == 2 || certo == 3 || certo == 4) {
-        return true
-    }
-}
 
-if (RespostaCerta(correto) == true) {
-    console.log('eee')
- }
+
 
 
 function comecar() {

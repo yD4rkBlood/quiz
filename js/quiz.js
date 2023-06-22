@@ -12,6 +12,7 @@ function Perguntas() {
                 resp4: "Quebec",
                 correta: "2"
             },
+
             {
                 tema: "Conhecimentos Gerais",
                 pergunta: "Quais o menor e o maior país do mundo?",
@@ -22,6 +23,7 @@ function Perguntas() {
                 resp4: "Vaticano e Rússia",
                 correta: "4"
             },
+
             {
                 tema: "Conhecimentos Gerais",
                 pergunta: "Qual a função da ONU?",
@@ -32,6 +34,7 @@ function Perguntas() {
                 resp4: "Zelar pela cultura em todas as nações",
                 correta: "3"
             },
+
             {
                 tema: "Conhecimentos Gerais",
                 pergunta: "Quanto tempo a luz do Sol demora para chegar à Terra?",
@@ -42,6 +45,7 @@ function Perguntas() {
                 resp4: "30 minutos",
                 correta: "3"
             },
+
             {
                 tema: "Conhecimentos Gerais",
                 pergunta: "Quem foi o primeiro homem a pisar na Lua? Em que ano aconteceu?",
@@ -54,6 +58,7 @@ function Perguntas() {
             }
 
         ]
+
     localStorage.setItem('bdQuiz', JSON.stringify(Questions))
     return Questions
 }
@@ -66,16 +71,21 @@ var Perguntatela = ''
 
 var Questions = Perguntas()
 
+do {
+    var Sorte = parseInt(Math.random() * Questions.length)
+} while (Sorteado.indexOf(Sorte) != -1)
+Sorteado.push(Sorte)
+
+
+
 function carregarjogo() {
 
-
-    do {
-        var Sorte = parseInt(Math.random() * Questions.length)
-    } while (Sorteado.indexOf(Sorte) != -1)
-    Sorteado.push(Sorte)
+    if (Sorteado.length == Questions.length) {
+        alert('Você já respondeu todas as perguntas')
+        return
+    }
 
     correto = Questions[Sorte].correta
-
     Perguntatela = Questions[Sorte].pergunta
     document.getElementById('perguntar').innerHTML = Questions[Sorte].pergunta
     document.getElementById('image').innerHTML = `<img class="imagem" src="${Questions[Sorte].imagem}">`
@@ -84,15 +94,26 @@ function carregarjogo() {
     document.getElementById('resposta3').innerHTML = Questions[Sorte].resp3
     document.getElementById('resposta4').innerHTML = Questions[Sorte].resp4
 
-    
+    document.getElementById('resposta1').addEventListener('click', function () {
+        validarResposta('1');
+    });
+
+    document.getElementById('resposta2').addEventListener('click', function () {
+        validarResposta('2');
+    });
+
+    document.getElementById('resposta3').addEventListener('click', function () {
+        validarResposta('3');
+    });
+
+    document.getElementById('resposta4').addEventListener('click', function () {
+        validarResposta('4');
+    });
 
 }
 
-
-
-
-
 function comecar() {
+
     var user = document.getElementById('usuario').value
 
     if (user == "") {
@@ -102,4 +123,14 @@ function comecar() {
         location.href = 'quiz.html'
     }
 
+}
+
+function validarResposta(resposta) {
+    if (resposta == correto) {
+        alert('Resposta correta! Parabéns!')
+        location.href = 'quiz.html'
+    } else {
+        alert('Que pena, você errou.')
+        location.href = 'quiz.html'
+    }
 }
